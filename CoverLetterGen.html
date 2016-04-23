@@ -5,91 +5,85 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<style>
-		table, td, th {
-   	margin: 10px;
-	size:30px;
-	border-radius: 5px;
-	input[type=text] {
-	size:400px}
-}
+
 	</style>
-</head>
-<body>
-	<header>
-		<em>Fill in the information and press enter</em>
-	<header>
-		<form>
-		<fieldset>
-<legend><strong>GENERATOR!</strong>	</legend>
-		<table> 
-<tr>
-<td>Company Name</td><td>Boss Name</td>
-</tr>
+	</head>
+	<body>
+		<header>
+			<em>Fill in the information and press enter</em>
+			<header
+			>		<form>
+			<fieldset>
+				<legend><strong>GENERATOR</strong>	</legend>
+				<table> 
+					<tr>
+						<td>Company Name</td><td>Boss Name</td>
+					</tr>
 
-<tr>
-<td><input type="text" id="company" value="" required></td><td><input type="text" id="bossName" value=""required></td>
-</tr>
-<tr>
-	<td>____________</td>
-</tr>
-<tr>
-	<td>Job Title</td>
-</tr>
-<tr>
-	<td><input type="text" id="jobTitle" value="" required></td><td><strong>Intern?</strong><input type=checkbox id=intern  value="young"></td>
-</tr>
-<tr>
-	<td>SKILLS<em> (, .., ..and)</em></td><td>BONUS SKILLS</td>
-</tr>
-<tr>
-	<td><textarea id="skills" value="" required></textarea></td><td><input type="text" id="bonus" value=""></td>
-</tr>
-<tr>
-	<td><strong>Profesion</strong></td>
-	
-</tr>
-<tr>
-	<td>
-		<select id="profesion" multiple="multiple">
-  		<optgroup label=CODE>
-			<option>Front-End Devolper</option>
-  			<option>Web Designer</option>
-  			<option>Web Developer</option>
-			<option>Coder</option>
-		</optgroup>
-		<optgroup label=ART>
-  			<option>Animator</option>
-			<option>Motion Graphics Artist</option>
-			<option>Video Editor</option>
-		</optgroup>
-	    	</select>
-	</td>
-</tr>
-		
-		</fieldset>
-		</form>
-</table>
-<tr>
-	<td><input type="button" id="process" onClick="allFunc()" ><strong>Get Me Hired</strong></td>
-	
-</tr>
+					<tr>
+						<td><input type="text" id="company" value="" required></td><td><input type="text" id="bossName" value=""required></td>
+					</tr>
+					<tr>
+						<td>____________</td>
+					</tr>
+					<tr>
+						<td>Job Title</td>
+					</tr>
+					<tr>
+						<td><input type="text" id="jobTitle" value="" required></td><td><strong>Intern?</strong><input type=checkbox id=intern  value="young"></td>
+					</tr>
+					<tr>
+						<td>SKILLS<em> (, .., ..and)</em></td><td>BONUS SKILLS</td>
+					</tr>
+					<tr>
+						<td><textarea id="skills" value="" required></textarea></td><td><input type="text" id="bonus" value=""></td>
+					</tr>
+					<tr>
+						<td><strong>Profesion</strong></td>
 
+					</tr>
+					<tr>
+						<td>
+							<select id="profesion" multiple="multiple">
+								<optgroup label=CODE>
+									<option>Front-End Devolper</option>
+									<option>Web Designer</option>
+									<option>Web Developer</option>
+									<option>Coder</option>
+								</optgroup>
+								<optgroup label=ART>
+									<option>Animator</option>
+									<option>Motion Graphics Artist</option>
+									<option>Video Editor</option>
+								</optgroup>
+							</select>
+						</td>
+					</tr>
 
+				</fieldset>
+			</form>
+		</table>
+		<tr>
+			<td><input type="button" id="process" onClick="allFunc()" ><strong>Get Me Hired</strong></td>
+
+		</tr>
 
 
 
-<script type="text/javascript">
+
+
+		<script type="text/javascript">
 //insert boss name
 function intro(){
-var bossName= document.getElementById("bossName").value;
-var replacement ="Dear " + bossName + ","+  "<br>"  +"  My name is Christopher Marlowe and";
+	var bossName= document.getElementById("bossName").value;
+	var replacement ="Dear " + bossName + ","+  "<br>"  +"  My name is Christopher Marlowe and";
 
-  if(bossName.length>1){
-document.getElementById("intro").innerHTML = replacement;
-document.getElementById("boss").innerHTML = bossName+ ",";
-}
-else
-{document.getElementById("intro").innerHTML= "Hello," +  "<br>"  + "  My name is Christopher Marlowe,";
+	if(bossName.length>1){
+		document.getElementById("intro").innerHTML = replacement;
+		document.getElementById("boss").innerHTML = bossName+ ",";
+	}
+	else
+		{document.getElementById("intro").innerHTML= "Hello," +  "<br>"  + "  My name is Christopher Marlowe,";
 }
 }
 
@@ -97,116 +91,120 @@ else
 
 //young or not inserted
 function internship(){
-var internbox= document.getElementById("intern").checked;
-if(internbox)
-	document.getElementById("youngInsert").innerHTML = "young ";
-else
-document.getElementById("youngInsert").innerHTML = " ";
+	var internbox= document.getElementById("intern").checked;
+	if(internbox)
+		document.getElementById("youngInsert").innerHTML = "young ";
+	else
+		document.getElementById("youngInsert").innerHTML = " ";
 }
 
 
 //profesion inserted
 function profesionName(){
-var chosenProfesion = document.getElementById("profesion");
-var selectedText = chosenProfesion.options[chosenProfesion.selectedIndex].text;
-document.getElementById("profesionInsert").innerHTML = selectedText;
+	var chosenProfesion = document.getElementById("profesion");
+	var selectedText = chosenProfesion.options[chosenProfesion.selectedIndex].text;
+	document.getElementById("profesionInsert").innerHTML = selectedText;
 }
 
 
 //time  
 function time(){
-var  chosenProfesion= document.getElementById("profesion");
-var x= chosenProfesion.options[chosenProfesion.selectedIndex].text;
-var timeID = document.getElementById("timeInsert").innerHTML;
+	var  chosenProfesion= document.getElementById("profesion");
+	var x= chosenProfesion.options[chosenProfesion.selectedIndex].text;
+	var timeID = document.getElementById("timeInsert").innerHTML;
 
-if((x == "Front-End Devolper")||(x == "Web Designer")||(x == "Web Developer")||(x == "Coder"))
-	document.getElementById("timeInsert").innerHTML= "almost a year ";
-else if((x == "Animator")||(x == "Motion Graphics Artist")||(x == "Video Editor"))
-	document.getElementById("timeInsert").innerHTML= "several years ";
-else 
-	document.getElementById("timeInsert").innerHTML= "ERROR. TIME function ERROR";
+	if((x == "Front-End Devolper")||(x == "Web Designer")||(x == "Web Developer")||(x == "Coder"))
+		document.getElementById("timeInsert").innerHTML= "almost a year ";
+	else if((x == "Animator")||(x == "Motion Graphics Artist")||(x == "Video Editor"))
+		document.getElementById("timeInsert").innerHTML= "several years ";
+	else 
+		document.getElementById("timeInsert").innerHTML= "ERROR. TIME function ERROR";
 }
 
 //add n for animator
 function n(){
-var chosenProfesion= document.getElementById("profesion");
-var x= chosenProfesion.options[chosenProfesion.selectedIndex].text;
-var internbox=document.getElementById("intern").checked;
+	var chosenProfesion= document.getElementById("profesion");
+	var x= chosenProfesion.options[chosenProfesion.selectedIndex].text;
+	var internbox=document.getElementById("intern").checked;
 
-if((x=="Animator")&&(internbox==false) )	
-document.getElementById("n").innerHTML="n ";
-else
-document.getElementById("n").innerHTML=" ";
+	if((x=="Animator")&&(internbox==false) )	
+		document.getElementById("n").innerHTML="n ";
+	else
+		document.getElementById("n").innerHTML=" ";
 }
 
 
 //thier job title insert function
 function job(){
-var title= document.getElementById("jobTitle").value;
+	var title= document.getElementById("jobTitle").value;
 
-if(title.length>1)
-document.getElementById("jobTitleInsert").innerHTML = title;
-else
-document.getElementById("jobTitleInsert").innerHTML= "ERROR: NO JOB TITLE!!";
+	if(title.length>1)
+		document.getElementById("jobTitleInsert").innerHTML = title;
+	else
+		document.getElementById("jobTitleInsert").innerHTML= "ERROR: NO JOB TITLE!!";
 }
 
 
 //company name
 function company(){
-var companyA= document.getElementById("company").value;
+	var companyA= document.getElementById("company").value;
 
-if(companyA.length>1)
-document.getElementById("companyName").innerHTML = companyA;
-else
-document.getElementById("companyName").innerHTML= "ERROR: No  COMPANY NAME!!";
+	if(companyA.length>1)
+		document.getElementById("companyName").innerHTML = companyA;
+	else
+		document.getElementById("companyName").innerHTML= "ERROR: No  COMPANY NAME!!";
 }
 
 //
 function skillsList(){
-var skill= document.getElementById("skills").value;
+	var skill= document.getElementById("skills").value;
+	console.log("skills is " + skill)
 
-var skillsA= document.getElementById("skills").value;
-console.log("0");
+	var skillsA= document.getElementById("skills").value;
+	console.log("0");
+		console.log("skillsA is " + skillsA)
 		//selected pattern to search for HTML or java script
-		var pattern = /(html|java script|js|javascript)+\s*,*\s*(html|java script|js|javascript)+\s*,*\s*(html|java script|js|javascript)*/gi;
-console.log("1");
-		var result = pattern.exec(skillsA); // makes array[everything, thing1, thing 2,...]
+		var pattern = /(html|java script|js|javascript+)\s*,*\s*(html|java script|js|javascript)+\s*,*\s*(html|java script|js|javascript)*/gi;
+		console.log("1");
+		var result = pattern.exec(skill); // makes array[everything, thing1, thing 2,...]
+		console.log("can you see this")
+		console.log(result);		
 
-console.log(result);		
-console.log(result.length);
+		console.log("can you see this 2")
+		console.log(result.length);
 		
-if(result[3]=== undefined){
-result.pop();
-console.log("un"+ result);
-}
-console.log("postpop"+result);
+		if(result[3] === undefined){
+			result.pop();
+			console.log("un"+ result);
+		}
+		console.log("postpop"+result);
 		result.shift(); //removes "index0" from array
-console.log(result);	
-console.log(result.length);		
+		console.log(result);	
+		console.log(result.length);		
 		var end= result.length-1; //one spot in index before last 
 
 
 		
-if(result.length<2){
-document.getElementById("skillsList").innerHTML= "ERROR: No  SKILLSLIST!!";
-console.log("none");
- 
+		if(result.length<2){
+			document.getElementById("skillsList").innerHTML= "ERROR: No  SKILLSLIST!!";
+			console.log("none");
 
-}else if(result.length== 2){
-console.log("two");
 
-result.splice(1,0," and ");
-var resultA= result.join(" ");
+		}else if(result.length== 2){
+			console.log("two");
+
+			result.splice(1,0," and ");
+			var resultA= result.join(" ");
 document.getElementById("skillsList").innerHTML = resultA+","; //two words 
 
 }else{ 
-console.log("more two");	
-console.log(result);
-var z= ", and " + result.slice(end);
-console.log(z);
-var y=result.slice(0,end);
-console.log(y);
-var resultAB=  y.join(", ")+ z;
+	console.log("more two");	
+	console.log(result);
+	var z= ", and " + result.slice(end);
+	console.log(z);
+	var y=result.slice(0,end);
+	console.log(y);
+	var resultAB=  y.join(", ")+ z;
 document.getElementById("skillsList").innerHTML = resultAB;  //3 or more
 }
 
@@ -215,53 +213,53 @@ document.getElementById("skillsList").innerHTML = resultAB;  //3 or more
 
 //funtion  for each type 
 function skills(){
-		
-		var skillsA= document.getElementById("skills").value;
-		
+
+	var skillsA= document.getElementById("skills").value;
+
 		//selected pattern to search for HTML or java script
 		var pattern = /(html|java script|js|javascript)+\s*,*\s*(html|java script|js|javascript)+/i;
 		var result = pattern.test(skillsA);
 		
 		if(result){
-		document.getElementById("htmlTrigger").style.display = "inline";
+			document.getElementById("htmlTrigger").style.display = "inline";
 		}else{
-		document.getElementById("htmlTrigger").style.display = "none";		
+			document.getElementById("htmlTrigger").style.display = "none";		
 		}
-}
+	}
 
 //bonus skills
 function bonus(){
-var bonusA= document.getElementById("bonus").value;
+	var bonusA= document.getElementById("bonus").value;
 
-if(bonusA.length>1){
-document.getElementById("bonusTrigger").style.display = "inline";	
-document.getElementById("bonusSkills").innerHTML = bonusA;
-}else{
-document.getElementById("bonusTrigger").style.display = "none";	
-}
+	if(bonusA.length>1){
+		document.getElementById("bonusTrigger").style.display = "inline";	
+		document.getElementById("bonusSkills").innerHTML = bonusA;
+	}else{
+		document.getElementById("bonusTrigger").style.display = "none";	
+	}
 }
 
 
 //LInks approriate for display
 function links(){
-var chosenProfesion = document.getElementById("profesion");
-var selectedText = chosenProfesion.options[chosenProfesion.selectedIndex].text;
+	var chosenProfesion = document.getElementById("profesion");
+	var selectedText = chosenProfesion.options[chosenProfesion.selectedIndex].text;
 
 
-  if((selectedText == "Front-End Devolper")||(selectedText == "Web Designer")||(selectedText == "Web Developer")||(selectedText == "Coder")){
-	document.getElementById("animationLink").style.display = "inline";	
-	document.getElementById("gitLink").style.display = "inline";
-	document.getElementById("and").style.display = "inline";
-  }else if((selectedText == "Animator")||(selectedText == "Motion Graphics Artist")||(selectedText == "Video Editor")){
-	document.getElementById("animationLink").style.display = "inline";	
-	document.getElementById("gitLink").style.display = "none";
-	document.getElementById("and").style.display = "none";
-}else {
-	document.getElementById("timeInsert").innerHTML= "ERROR NO LINKS!!!";
+	if((selectedText == "Front-End Devolper")||(selectedText == "Web Designer")||(selectedText == "Web Developer")||(selectedText == "Coder")){
+		document.getElementById("animationLink").style.display = "inline";	
+		document.getElementById("gitLink").style.display = "inline";
+		document.getElementById("and").style.display = "inline";
+	}else if((selectedText == "Animator")||(selectedText == "Motion Graphics Artist")||(selectedText == "Video Editor")){
+		document.getElementById("animationLink").style.display = "inline";	
+		document.getElementById("gitLink").style.display = "none";
+		document.getElementById("and").style.display = "none";
+	}else {
+		document.getElementById("timeInsert").innerHTML= "ERROR NO LINKS!!!";
+	}
 }
-}
 
- 
+
 
 function lightsOn(){
 	document.getElementById("everything").style.display = "inline";	
@@ -270,51 +268,51 @@ function lightsOn(){
 
 //all functions
 function allFunc(){
-    intro();
-    internship();
-    profesionName();
-    time();
-    n();
-    job();
-    company();
-    skills();
-    skillsList();
-    bonus();
-    links();
-  lightsOn();
+	intro();
+	internship();
+	profesionName();
+	time();
+	n();
+	job();
+	company();
+	skills();
+	skillsList();
+	bonus();
+	links();
+	lightsOn();
 }
 </script>
 <section id="everything" style="display: none;">
-<p><span id="intro">ERROR: NO INTRO!!!</span>
+	<p><span id="intro">ERROR: NO INTRO!!!</span>
 
-I'm a<span id=n></span> <span id="youngInsert"></span><span id="profesionInsert">!!!</span> with <span id="timeInsert">!!!
-</span>of experience.  I'm applying for the <span id=jobTitleInsert>!!!!!!</span> position.
+		I'm a<span id=n></span> <span id="youngInsert"></span><span id="profesionInsert">!!!</span> with <span id="timeInsert">!!!
+	</span>of experience.  I'm applying for the <span id=jobTitleInsert>!!!!!!</span> position.
 
-<!--triggered with mention of HTML and java script HTML in the letter.-->
-<div id="htmlTrigger" style="display: none;"><p>You are actually reading from a "Cover Letter Generator" that I have created useing Javascript, CSS, and HTML.
-These are the very skills you were looking for in a canidate, and I thought it wise to demonstrate them immedietly.  Please investigate it for yourself further by clicking <a href="http://www.github.com">Here<a></p></div>
-
-
-I also noticed that <span id=companyName>!!!!</span> is looking for canidates with experience in <span id=skillsList>!!!!!!!</span>
-to which samples of my work can be seen on <div id=animationLink><a href=http://www.marloweanimation.com>My Website</a></span><div id="and"> and </div> <div id=gitLink><a href=http://www.github.com>My Github</a></div>.
-
-<!--triggered with mention of bonus in the letter.-->
-<div id="bonusTrigger" style="display: none;">
-Also in the link<span id="s">s</span> provided, you will no doubt notice I am also comfortable with <span id="bonusSkills"><span></div>.</p>
-
-<p>Thank you <span id="boss"></span> for your time.  I look foward to hearing back from you soon.<br>
-
-<br>Best,<br>
-Christopher Marlowe
-
-</p>
-</section>		
+	<!--triggered with mention of HTML and java script HTML in the letter.-->
+	<div id="htmlTrigger" style="display: none;"><p>You are actually reading from a "Cover Letter Generator" that I have created useing Javascript, CSS, and HTML.
+		These are the very skills you were looking for in a canidate, and I thought it wise to demonstrate them immedietly.  Please investigate it for yourself further by clicking <a href="http://www.github.com">Here<a></p></div>
 
 
+		I also noticed that <span id=companyName>!!!!</span> is looking for canidates with experience in <span id=skillsList>!!!!!!!</span>
+		to which samples of my work can be seen on <div id=animationLink><a href=http://www.marloweanimation.com>My Website</a></span><div id="and"> and </div> <div id=gitLink><a href=http://www.github.com>My Github</a></div>.
 
-</body>
-<footer style= font-size:"8px"><em>Copy and paste into Cover letter.<em></footer>
-</html>
+		<!--triggered with mention of bonus in the letter.-->
+		<div id="bonusTrigger" style="display: none;">
+			Also in the link<span id="s">s</span> provided, you will no doubt notice I am also comfortable with <span id="bonusSkills"><span></div>.</p>
+
+			<p>Thank you <span id="boss"></span> for your time.  I look foward to hearing back from you soon.<br>
+
+				<br>Best,<br>
+				Christopher Marlowe
+
+			</p>
+		</section>		
+
+
+
+	</body>
+	<footer style= font-size:"8px"><em>Copy and paste into Cover letter.<em></footer>
+	</html>
 
 
 
