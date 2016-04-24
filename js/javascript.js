@@ -1,5 +1,23 @@
 //javascript code
 
+    function validateForm()
+    {
+    var company=document.getElementById("company").value;
+    var bossName=document.getElementById("bossName").value;
+    var jobTitle=document.getElementById("jobTitle").value;
+    var profession= document.getElementById("profesion").value;
+    var skills= document.getElementById("skills").value;
+
+    if (bossName==""||company==""||jobTitle==""|| skills=== "" || profession=="")
+      {
+      	alert("Company Name, Boss Name, Job title, Skills, and Profession are required");
+      	console.log("Company: "+ company + " Boss: " + bossName + "JobTitle: "+ jobTitle + "Skills: " + skills + "Profession: " + profession);
+      	return false;
+      }else{
+    	return true;
+      }
+    }
+
 //insert boss name
 function intro(){
 	var bossName= document.getElementById("bossName").value;
@@ -7,11 +25,12 @@ function intro(){
 
 	if(bossName.length>1){
 		document.getElementById("intro").innerHTML = replacement;
-		document.getElementById("boss").innerHTML = bossName+ ",";
+		document.getElementById("boss").innerHTML = bossName + ",";
 	}
 	else
 		{document.getElementById("intro").innerHTML= "Hello," +  "<br>"  + "  My name is Christopher Marlowe,";
 }
+return true;
 }
 
 
@@ -191,17 +210,20 @@ function lightsOn(){
 
 
 //all functions
-function allFunc(){
-	intro();
-	internship();
-	profesionName();
-	time();
-	n();
-	job();
-	company();
-	skills();
-	skillsList();
-	bonus();
-	links();
-	lightsOn();
+function submitAll(){
+	if(validateForm()){
+		intro();
+		internship();
+		profesionName();
+		time();
+		n();
+		job();
+		company();
+		skills();
+		skillsList();
+		bonus();
+		links();
+		lightsOn();
+	}
+
 }
