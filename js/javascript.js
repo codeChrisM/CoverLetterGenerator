@@ -40,7 +40,7 @@ function time(){
 	var x= chosenProfesion.options[chosenProfesion.selectedIndex].text;
 	var timeID = document.getElementById("timeInsert").innerHTML;
 
-	if((x == "Front-End Devolper")||(x == "Web Designer")||(x == "Web Developer")||(x == "Coder"))
+	if((x == "Front-End Developer")||(x == "Web Designer")||(x == "Web Developer")||(x == "Coder"))
 		document.getElementById("timeInsert").innerHTML= "almost a year ";
 	else if((x == "Animator")||(x == "Motion Graphics Artist")||(x == "Video Editor"))
 		document.getElementById("timeInsert").innerHTML= "several years ";
@@ -83,16 +83,13 @@ function company(){
 }
 
 //
-function skillsList(){
-	var skill= document.getElementById("skills").value;
-	console.log("skills is " + skill)
+function skillsList(){ //s
 
-	var skillsA= document.getElementById("skills").value;
-	console.log("0");
-	console.log("skillsA is " + skillsA)
+	var skill= document.getElementById("skills").value;
+
+	console.log("skills to include " + skill);
 		//selected pattern to search for HTML or java script
 		var pattern = /(html|java script|js|javascript+)\s*,*\s*(html|java script|js|javascript)+\s*,*\s*(html|java script|js|javascript)*/gi;
-		console.log("1");
 		var result = pattern.exec(skill); // makes array[everything, thing1, thing 2,...]
 		console.log("can you see this")
 		console.log(result);		
@@ -100,10 +97,10 @@ function skillsList(){
 		console.log("can you see this 2")
 		console.log(result.length);
 		
-		if(result[3] === undefined){
-			result.pop();
-			console.log("un"+ result);
-		}
+		// if(result[3] === undefined){
+		// 	result.pop();
+		// 	console.log("un"+ result);
+		// }
 		console.log("postpop"+result);
 		result.shift(); //removes "index0" from array
 		console.log(result);	
@@ -173,7 +170,7 @@ function links(){
 	var selectedText = chosenProfesion.options[chosenProfesion.selectedIndex].text;
 
 
-	if((selectedText == "Front-End Devolper")||(selectedText == "Web Designer")||(selectedText == "Web Developer")||(selectedText == "Coder")){
+	if((selectedText == "Front-End Developer")||(selectedText == "Web Designer")||(selectedText == "Web Developer")||(selectedText == "Coder")){
 		document.getElementById("animationLink").style.display = "inline";	
 		document.getElementById("gitLink").style.display = "inline";
 		document.getElementById("and").style.display = "inline";
