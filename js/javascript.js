@@ -3,12 +3,11 @@
     function validateForm()
     {
     var company=document.getElementById("company").value;
-    var bossName=document.getElementById("bossName").value;
     var jobTitle=document.getElementById("jobTitle").value;
     var profession= document.getElementById("profesion").value;
     var skills= document.getElementById("skills").value;
 
-    if (bossName==""||company==""||jobTitle==""|| skills=== "" || profession=="")
+    if (company==""||jobTitle==""|| skills=== "" || profession=="")
       {
       	alert("Company Name, Boss Name, Job title, Skills, and Profession are required");
       	console.log("Company: "+ company + " Boss: " + bossName + "JobTitle: "+ jobTitle + "Skills: " + skills + "Profession: " + profession);
@@ -22,15 +21,12 @@
 function intro(){
 	var bossName= document.getElementById("bossName").value;
 	var replacement ="Dear " + bossName + ","+  "<br>"  +"  My name is Christopher Marlowe and";
-
-	if(bossName.length>1){
+	if(bossName.length>1){ //address a specific person if given.
 		document.getElementById("intro").innerHTML = replacement;
 		document.getElementById("boss").innerHTML = bossName + ",";
+	}else{
+		document.getElementById("intro").innerHTML= "Hello," +  "<br>"  + "  My name is Christopher Marlowe,";
 	}
-	else
-		{document.getElementById("intro").innerHTML= "Hello," +  "<br>"  + "  My name is Christopher Marlowe,";
-}
-return true;
 }
 
 
