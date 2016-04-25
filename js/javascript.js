@@ -103,57 +103,22 @@ function skills(){
 	var skills= document.getElementById("skills").value;
 
 		//selected pattern to search for HTML or java script
-		var pattern = /(html|java script|js|javascript)+\s*,*\s*(html|java script|js|javascript)+/i;
+		var pattern = /(html|java script|js|css|javascript)+\s*,*\s*(html|java script|js|css|javascript)+/i;
 		var result = pattern.test(skills);
 		
 		if(result){
 			document.getElementById("htmlTrigger").style.display = "inline";
+			return true;
 		}else{
 			document.getElementById("htmlTrigger").style.display = "none";		
 		}
 	}
 
-//
-function skillsList(){ //s
-
+//skills requested
+function skillsList(){ 
 	var skill= document.getElementById("skills").value;
-
+	document.getElementById("skillsList").innerHTML = skill + ";";
 	console.log("skills to include " + skill);
-		//selected pattern to search for HTML or java script
-		var pattern = /(html|java script|js|javascript+)\s*,*\s*(html|java script|js|javascript)+\s*,*\s*(html|java script|js|javascript)*/gi;
-		var result = pattern.exec(skill); // makes array[everything, thing1, thing 2,...]
-		console.log("result: " + result)
-		console.log(result.length);
-		
-		// if(result[3] === undefined){
-		// 	result.pop();
-		// }
-		// console.log("postpop"+result);
-		result.shift(); //removes "index0" from array
-		var end= result.length-1; //one spot in index before last 
-		console.log("result Length:"+ result.length);
-
-		
-		if(result.length<2){
-			document.getElementById("skillsList").innerHTML= "ERROR: No  SKILLSLIST!!";
-			console.log("result length: <2");
-
-
-		}else if(result.length== 2){
-			result.splice(1,0," and ");
-			var resultA= result.join(" ");
-			document.getElementById("skillsList").innerHTML = resultA + ","; //two words 
-			console.log("Skill result length: 2");	
-
-		}else{ 
-
-			console.log("Skill result length: <2");	
-			var skilladdAnd= ", and " + result.slice(end);
-			var resultArray=result.slice(0,end);
-			var resultArray=  resultArray.join(", ")+ skilladdAnd;
-			document.getElementById("skillsList").innerHTML = resultArray;  //3 or more
-		}
-
 }
 
 
