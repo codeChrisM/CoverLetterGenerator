@@ -90,12 +90,28 @@ function job(){
 //company name
 function company(){
 	var companyA= document.getElementById("company").value;
-
-	if(companyA.length>1)
+	
+	if(companyA.length>1){
 		document.getElementById("companyName").innerHTML = companyA;
-	else
+	}else{
 		document.getElementById("companyName").innerHTML= "ERROR: No  COMPANY NAME!!";
+	}
 }
+
+//funtion  for each type 
+function skills(){
+	var skills= document.getElementById("skills").value;
+
+		//selected pattern to search for HTML or java script
+		var pattern = /(html|java script|js|javascript)+\s*,*\s*(html|java script|js|javascript)+/i;
+		var result = pattern.test(skills);
+		
+		if(result){
+			document.getElementById("htmlTrigger").style.display = "inline";
+		}else{
+			document.getElementById("htmlTrigger").style.display = "none";		
+		}
+	}
 
 //
 function skillsList(){ //s
@@ -106,65 +122,41 @@ function skillsList(){ //s
 		//selected pattern to search for HTML or java script
 		var pattern = /(html|java script|js|javascript+)\s*,*\s*(html|java script|js|javascript)+\s*,*\s*(html|java script|js|javascript)*/gi;
 		var result = pattern.exec(skill); // makes array[everything, thing1, thing 2,...]
-		console.log("can you see this")
-		console.log(result);		
-
-		console.log("can you see this 2")
+		console.log("result: " + result)
 		console.log(result.length);
 		
 		// if(result[3] === undefined){
 		// 	result.pop();
-		// 	console.log("un"+ result);
 		// }
-		console.log("postpop"+result);
+		// console.log("postpop"+result);
 		result.shift(); //removes "index0" from array
-		console.log(result);	
-		console.log(result.length);		
 		var end= result.length-1; //one spot in index before last 
-
+		console.log("result Length:"+ result.length);
 
 		
 		if(result.length<2){
 			document.getElementById("skillsList").innerHTML= "ERROR: No  SKILLSLIST!!";
-			console.log("none");
+			console.log("result length: <2");
 
 
 		}else if(result.length== 2){
-			console.log("two");
-
 			result.splice(1,0," and ");
 			var resultA= result.join(" ");
-document.getElementById("skillsList").innerHTML = resultA+","; //two words 
+			document.getElementById("skillsList").innerHTML = resultA + ","; //two words 
+			console.log("Skill result length: 2");	
 
-}else{ 
-	console.log("more two");	
-	console.log(result);
-	var z= ", and " + result.slice(end);
-	console.log(z);
-	var y=result.slice(0,end);
-	console.log(y);
-	var resultAB=  y.join(", ")+ z;
-document.getElementById("skillsList").innerHTML = resultAB;  //3 or more
-}
+		}else{ 
 
-}
-
-
-//funtion  for each type 
-function skills(){
-
-	var skillsA= document.getElementById("skills").value;
-
-		//selected pattern to search for HTML or java script
-		var pattern = /(html|java script|js|javascript)+\s*,*\s*(html|java script|js|javascript)+/i;
-		var result = pattern.test(skillsA);
-		
-		if(result){
-			document.getElementById("htmlTrigger").style.display = "inline";
-		}else{
-			document.getElementById("htmlTrigger").style.display = "none";		
+			console.log("Skill result length: <2");	
+			var skilladdAnd= ", and " + result.slice(end);
+			var resultArray=result.slice(0,end);
+			var resultArray=  resultArray.join(", ")+ skilladdAnd;
+			document.getElementById("skillsList").innerHTML = resultArray;  //3 or more
 		}
-	}
+
+}
+
+
 
 //bonus skills
 function bonus(){
